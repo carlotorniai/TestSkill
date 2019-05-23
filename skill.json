@@ -3,25 +3,61 @@
     "publishingInformation": {
       "locales": {
         "en-US": {
-          "summary": "A basic skill made from Alexa Skills Kit template",
+          "summary": "This is the official FIFA Alexa skill.",
           "examplePhrases": [
-            "Alexa open hello python",
-            "Alexa tell hello python hello",
-            "Alexa ask hello python say hello"
+            "alexa, open fifa",
+            "alexa, ask fifa"
           ],
-          "name": "hello python",
-          "description": "A basic skill made from Alexa Skills Kit template"
+          "keywords": [
+            "fifa",
+            "Football World Cup",
+            "Woman's World Cup France 2019"
+          ],
+          "name": "fifa",
+          "description": "This skills keeps you up to date with FIFA World Cups."
         }
       },
-      "isAvailableWorldwide": true,
-      "testingInstructions": "Sample Testing Instructions.",
-      "category": "EDUCATION_AND_REFERENCE",
-      "distributionCountries": []
+      "isAvailableWorldwide": false,
+      "testingInstructions": "1) Say 'Alexa, ask FIFA when Switzerland is playing?'",
+      "category": "SPORTS_GAMES",
+      "distributionCountries": [
+        "US",
+        "GB",
+        "FR",
+        "CH",
+        "DE"
+      ]
     },
     "apis": {
       "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:040623927470:function:sampleSkill"
+        },
+        "interfaces": [
+          {
+            "type":"CAN_FULFILL_INTENT_REQUEST"
+          }
+        ]
       }
     },
-    "manifestVersion": "1.0"
+    "manifestVersion": "1.0",
+    "permissions": [
+      {
+        "name": "alexa::alerts:reminders:skill:readwrite"
+      }
+    ],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "locales": {
+        "en-US": {
+          "privacyPolicyUrl": "http://www.myprivacypolicy.sampleskill.com",
+          "termsOfUseUrl": "http://www.termsofuse.sampleskill.com"
+        }
+      }
+    }
   }
 }
