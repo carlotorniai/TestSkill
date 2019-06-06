@@ -1,0 +1,17 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pep8 = "*"
+pylint = "*"
+black = "==19.3b0"
+pytest = "==4.5.0"
+
+[packages]
+tapioca-wrapper = "*"
+ask-sdk-core = "*"
+
+[requires]
+python_version = "3.7"

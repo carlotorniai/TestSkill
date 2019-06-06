@@ -5,8 +5,8 @@
         "en-US": {
           "summary": "This is the official FIFA Alexa skill.",
           "examplePhrases": [
-            "alexa, open fifa",
-            "alexa, ask fifa"
+            "Alexa, open fifa",
+            "Alexa, ask fifa which matches are on today"
           ],
           "keywords": [
             "fifa",

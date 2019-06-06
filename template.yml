@@ -40,7 +40,7 @@ Resources:
         AlexaSkillEvent:
           Type: AlexaSkill
       Description: ''
-      MemorySize: 128
+      MemorySize: 512
       Timeout: 12
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
