@@ -121,7 +121,7 @@ def matches(match_data):
         away_team_score=match_data["AwayTeamScore"],
         away_team_name=match_data["Away"]["TeamName"][0]["Description"],
         away_team_id=match_data["Away"]["IdTeam"],
-        dt=date_parse(match_data["Date"]),
+        dt=date_parse(match_data["LocalDate"]),
     )
 
 
