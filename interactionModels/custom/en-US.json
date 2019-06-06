@@ -218,6 +218,8 @@
                         "Tell me the score of the current match",
                         "Tell me the live scores",
                         "Are there any matches in progress",
+                        "Who is currently playing",
+                        "Who is playing now",
                         "Are there any games in progress"
                     ]
                 }

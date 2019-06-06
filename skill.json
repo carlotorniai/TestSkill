@@ -6,7 +6,8 @@
           "summary": "This is the official FIFA Alexa skill.",
           "examplePhrases": [
             "Alexa, open fifa",
-            "Alexa, ask fifa which matches are on today"
+            "Alexa, ask fifa which matches are on today",
+            "Alexa, ask fifa"
           ],
           "keywords": [
             "fifa",
