@@ -13,7 +13,7 @@ from ask_sdk_core.utils import is_request_type, is_intent_name, get_slot_value, 
 from ask_sdk_core.handler_input import HandlerInput
 from ask_sdk_model import Response
 
-import fifa
+import Fifa as fifa
 
 API = fifa.FifaApiWrapper()
 
