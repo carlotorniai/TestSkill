@@ -1,308 +1,502 @@
 {
     "interactionModel": {
-      "languageModel": {
-        "invocationName": "fifa",
-        "types": [
-          {
-            "name": "event",
-            "values": [
-              {
-                "id": "eventid1",
-                "name": {
-                  "value": "Woman’s World Cup",
-                  "synonyms": ["Woman","Female"]
-                }
-              },
-              {
-                "id": "eventid2",
-                "name": {
-                  "value": "World Cup 2018",
-                  "synonyms": ["World Cup","Man"]
-                }
-              }
-            ]
-          },
-          {
-            "name": "stat",
-            "values": [
-              {
-                "id": "statid1",
-                "name": {
-                  "value": "top scorer",
-                  "synonyms": ["best scorer","most goals"]
-                }
-              }
-            ]
-          }
-        ],
-        "intents": [
-          {
-            "name": "AMAZON.CancelIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.HelpIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.StopIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.YesIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.NoIntent",
-            "samples": []
-          },
-          {
-            "name": "Matches",
-            "samples": [
-                "What are {timeframe} matches",
-                "Who is playing {timeframe}"
-            ],
-            "slots": [
+        "languageModel": {
+            "invocationName": "fifa",
+            "intents": [
                 {
-                    "name": "timeframe",
-                    "type": "AMAZON.DATE",
-                    "samples": [
-                      "I am looking for matches {timeframe}",
-                      "{timeframe} "
-                    ]
-                }
-            ]
-          },
-          {
-            "name": "Matchsearch",
-            "samples": [
-                "When is {country} playing at {event}",
-                "When is {country} playing",
-                "When is the next match of {country}"
-            ],
-            "slots": [
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
                 {
-                    "name": "country",
-                    "type": "AMAZON.Country",
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.YesIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": []
+                },
+                {
+                    "name": "Matches",
+                    "slots": [
+                        {
+                            "name": "timeframe",
+                            "type": "AMAZON.DATE",
+                            "samples": [
+                                "I am looking for matches {timeframe}",
+                                "Which matches are on {timeframe}",
+                                "Wer spielt {timeframe}",
+                                "{timeframe} "
+                            ]
+                        }
+                    ],
                     "samples": [
-                      "I am looking for country {country}",
-                      "{country}"
+                        "Which matches are on {timeframe}",
+                        "What are {timeframe} matches",
+                        "Who is playing {timeframe}",
+                        "Wer spielt {timeframe}",
+                        "Welche Spiele gibt es {timeframe}",
+                        "Welche Spiele geben es {timeframe}"
                     ]
                 },
+                {
+                    "name": "Matchsearch",
+                    "slots": [
+                        {
+                            "name": "country",
+                            "type": "AMAZON.Country",
+                            "samples": [
+                                "I am looking for country {country}",
+                                "{country}"
+                            ]
+                        },
+                        {
+                            "name": "event",
+                            "type": "event",
+                            "samples": [
+                                "I am looking for event {event}",
+                                "{event} "
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "when does {country} play at {event}",
+                        "when does {country} play",
+                        "When is {country} playing at {event}",
+                        "When is {country} playing",
+                        "When is the next match of {country}"
+                    ]
+                },
+                {
+                    "name": "Results",
+                    "slots": [
+                        {
+                            "name": "timeframe",
+                            "type": "AMAZON.DATE",
+                            "samples": [
+                                "I am looking for recap of {timeframe}",
+                                "{timeframe}"
+                            ]
+                        },
+                        {
+                            "name": "event",
+                            "type": "event"
+                        }
+                    ],
+                    "samples": [
+                        "who won games {timeframe}",
+                        "who won matches {timeframe}",
+                        "tell me who won {timeframe} match in the {event}",
+                        "tell me who won {timeframe} matches in the {event}",
+                        "what are the results of {timeframe} matches in the {event}",
+                        "what are the scores of {timeframe} matches in the {event}",
+                        "what is the score of {timeframe} match in the {event}",
+                        "what is the result of {timeframe} match in the {event}",
+                        "what is the result of {timeframe} matches in the {event}",
+                        "what is the score of {timeframe} matches in the {event}",
+                        "what is the scores of {timeframe} matches in the {event}",
+                        "What is the results of {timeframe} matches in the {event}",
+                        "Tell me the recap of {timeframe} matches in the {event}",
+                        "tell me who won {timeframe} match",
+                        "tell me who won {timeframe} matches",
+                        "what are the results of {timeframe} matches",
+                        "what are the scores of {timeframe} matches",
+                        "what is the score of {timeframe} match",
+                        "what is the result of {timeframe} match",
+                        "what is the result of {timeframe} matches",
+                        "what is the score of {timeframe} matches",
+                        "what is the scores of {timeframe} matches",
+                        "What is the results of {timeframe} matches",
+                        "Tell me the recap of {timeframe} matches"
+                    ]
+                },
+                {
+                    "name": "Stats",
+                    "slots": [
+                        {
+                            "name": "stat",
+                            "type": "stat",
+                            "samples": [
+                                "I am looking for {stat}",
+                                "{stat}"
+                            ]
+                        },
+                        {
+                            "name": "country",
+                            "type": "AMAZON.Country",
+                            "samples": [
+                                "I am looking for country {country}",
+                                "{country}"
+                            ]
+                        },
+                        {
+                            "name": "event",
+                            "type": "event"
+                        }
+                    ],
+                    "samples": [
+                        "Who is {stat} in the {event}",
+                        "Who is {stat} in {event}",
+                        "Who is {country} s top scorer in the {event}",
+                        "Who is {country} s top scorer in {event}",
+                        "Who are the {stat} of the {event} so far",
+                        "Who is the {stat} of the {event} for {country}",
+                        "Who is the {stat} of {event} for {country}",
+                        "Who is the {stat}",
+                        "Who is {stat}",
+                        "Who is {stat} in the {event}",
+                        "Who is {stat} in {event}",
+                        "Who is the {stat} for {country}",
+                        "Who is the {stat} for {country} in {event}",
+                        "Who is the leading {stat} for {country}",
+                        "Who is the leading {stat} for {country} in {event}",
+                        "Who is the top {stat} for {country}",
+                        "Who is {country} leading {stat}",
+                        "Who is {country} top {stat}",
+                        "Who {stat}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "WhereToWatch",
+                    "slots": [
+                        {
+                            "name": "country",
+                            "type": "AMAZON.Country"
+                        },
+                        {
+                            "name": "team",
+                            "type": "AMAZON.Country"
+                        }
+                    ],
+                    "samples": [
+                        "where can I watch the {team} game in {country}",
+                        "which channel has the {team} game in {country}",
+                        "which channel has the {team} match in {country}",
+                        "where can I watch the {team} match in {country}",
+                        "where can I watch games in {country}",
+                        "where can I watch games in the {country}",
+                        "where can I watch matches in {country}",
+                        "which channel has matches in {country}",
+                        "where can I watch in {country}",
+                        "where can I watch in the {country}",
+                        "Which channel are matches on in {country}"
+                    ]
+                },
+                {
+                    "name": "LiveMatches",
+                    "slots": [
+                        {
+                            "name": "country",
+                            "type": "AMAZON.Country"
+                        }
+                    ],
+                    "samples": [
+                        "What is the scores of the in progress matches",
+                        "What are the scores of the in progress matches",
+                        "What is the score of the in progress match",
+                        "What is the score of the current match",
+                        "What is the score of the current matches",
+                        "Give me an update on the current games",
+                        "What is the scores of in progress matches",
+                        "What are the scores of in progress matches",
+                        "What are the scores of the current matches",
+                        "What is the score of in progress match",
+                        "What is the score of the {country} game",
+                        "What is the score of the {country} match",
+                        "Tell me the live match details",
+                        "Tell me the score of the current match",
+                        "Tell me the live scores",
+                        "Are there any matches in progress",
+                        "Are there any games in progress"
+                    ]
+                }
+            ],
+            "types": [
                 {
                     "name": "event",
-                    "type": "event",
-                    "samples": [
-                      "I am looking for event {event}",
-                      "{event} "
+                    "values": [
+                        {
+                            "id": "278513",
+                            "name": {
+                                "value": "Woman’s World Cup",
+                                "synonyms": [
+                                    "the womens world cup",
+                                    "womens world cup",
+                                    "the womans world cup",
+                                    "world cup 2019",
+                                    "womans world cup",
+                                    "Woman",
+                                    "Women",
+                                    "Womens",
+                                    "Female"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "254645",
+                            "name": {
+                                "value": "World Cup 2018",
+                                "synonyms": [
+                                    "mens world cup",
+                                    "world cup 2018",
+                                    "World Cup",
+                                    "Man",
+                                    "Male",
+                                    "Men"
+                                ]
+                            }
+                        }
                     ]
-                }
-            ]
-          },
-          {
-            "name": "Results",
-            "samples": [
-                "Tell me the recap of {timeframe} matches"
-            ],
-            "slots": [
-                {
-                    "name": "timeframe",
-                    "type": "AMAZON.DATE",
-                    "samples": [
-                      "I am looking for recap of {timeframe}",
-                      "{timeframe}"
-                    ]
-                }
-            ]
-          },
-          {
-            "name": "Stats",
-            "samples": [
-                "Who are the {stat} of the FIFA women World Cup so far",
-                "Who is the {stat} of the FIFA women World Cup for {country}",
-                "Who is the {stat}",
-                "Who is {stat}",
-                "Who is the {stat} for {country}",
-                "Who {stat}"
-            ],
-            "slots": [
+                },
                 {
                     "name": "stat",
-                    "type": "stat",
-                    "samples": [
-                      "I am looking for {stat}",
-                      "{stat}"
+                    "values": [
+                        {
+                            "id": "statid1",
+                            "name": {
+                                "value": "top scorer",
+                                "synonyms": [
+                                    "best scorer",
+                                    "most goals"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "Matches",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "timeframe",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-Matches.IntentSlot-timeframe"
+                            },
+                            "validations": [
+                                {
+                                    "type": "isInDuration",
+                                    "prompt": "Slot.Validation.Intent-Matches.IntentSlot-timeframe",
+                                    "start": "P0D",
+                                    "end": "P7D"
+                                }
+                            ]
+                        }
                     ]
                 },
                 {
-                    "name": "country",
-                    "type": "AMAZON.Country",
-                    "samples": [
-                      "I am looking for country {country}",
-                      "{country}"
+                    "name": "Matchsearch",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "country",
+                            "type": "AMAZON.Country",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-Matchsearch.IntentSlot-country"
+                            }
+                        },
+                        {
+                            "name": "event",
+                            "type": "event",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "Results",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "timeframe",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-Results.IntentSlot-timeframe"
+                            },
+                            "validations": [
+                                {
+                                    "type": "isInDuration",
+                                    "prompt": "Slot.Validation.Intent-Results.IntentSlot-timeframe",
+                                    "start": "-P7D",
+                                    "end": "P0D"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "event",
+                            "type": "event",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "Stats",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "stat",
+                            "type": "stat",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-Stats.IntentSlot-stat"
+                            }
+                        },
+                        {
+                            "name": "country",
+                            "type": "AMAZON.Country",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "event",
+                            "type": "event",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "WhereToWatch",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "country",
+                            "type": "AMAZON.Country",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Intent-WhereToWatch.IntentSlot-country"
+                            }
+                        },
+                        {
+                            "name": "team",
+                            "type": "AMAZON.Country",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
                     ]
                 }
-            ]
-          }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Intent-Matches.IntentSlot-timeframe",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "For which day you'd like to get info about matches?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-Matchsearch.IntentSlot-country",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "For which country you'd like to get info about matches?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-Results.IntentSlot-timeframe",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "For which day you'd like to get recap of matches?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-WhereToWatch.IntentSlot-country",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "For which country you'd like to get info about where to watch?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Intent-Stats.IntentSlot-stat",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Valid answer is Top Scorer. What statistics are you looking for? "
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.Intent-Matches.IntentSlot-timeframe",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Currently I don't support {timeframe}. Please ask for another upcoming day."
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "{timeframe} is out of my scope, please ask for another upcoming day."
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.Intent-Results.IntentSlot-timeframe",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Currently I don't support {timeframe}. Please ask for another date in the past seven days."
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "{timeframe} is out of my scope, please ask for another date in the past seven days."
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.Intent-WhereToWatch.IntentSlot-timeframe",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Currently I don't support {timeframe}. Please ask for another date in the past seven days."
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "{timeframe} is out of my scope, please ask for another date in the past seven days."
+                    }
+                ]
+            }
         ]
-      },
-      "dialog": {
-        "intents": [
-          {
-            "name": "Matches",
-            "confirmationRequired": false,
-            "prompts": {},
-            "slots": [
-              {
-                "name": "timeframe",
-                "type": "AMAZON.DATE",
-                "confirmationRequired": false,
-                "elicitationRequired": true,
-                "prompts": {
-                  "elicitation": "Elicit.Intent-Matches.IntentSlot-timeframe"
-                },
-                "validations": [
-                  {
-                    "type": "isInDuration",
-                    "prompt": "Slot.Validation.Intent-Matches.IntentSlot-timeframe",
-                    "start": "P0D",
-                    "end": "P2D"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "name": "Matchsearch",
-            "confirmationRequired": false,
-            "prompts": {},
-            "slots": [
-              {
-                "name": "country",
-                "type": "AMAZON.Country",
-                "confirmationRequired": false,
-                "elicitationRequired": true,
-                "prompts": {
-                  "elicitation": "Elicit.Intent-Matchsearch.IntentSlot-country"
-                }
-              }
-            ]
-          },
-          {
-            "name": "Results",
-            "confirmationRequired": false,
-            "prompts": {},
-            "slots": [
-              {
-                "name": "timeframe",
-                "type": "AMAZON.DATE",
-                "confirmationRequired": false,
-                "elicitationRequired": true,
-                "prompts": {
-                  "elicitation": "Elicit.Intent-Results.IntentSlot-timeframe"
-                },
-                "validations": [
-                  {
-                    "type": "isInDuration",
-                    "prompt": "Slot.Validation.Intent-Results.IntentSlot-timeframe",
-                    "start": "-P2D",
-                    "end": "P0D"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "name": "Stats",
-            "confirmationRequired": false,
-            "prompts": {},
-            "slots": [
-              {
-                "name": "stat",
-                "type": "stat",
-                "confirmationRequired": false,
-                "elicitationRequired": true,
-                "prompts": {
-                  "elicitation": "Elicit.Intent-Stats.IntentSlot-stat"
-                }
-              },
-              {
-                "name": "country",
-                "type": "AMAZON.Country",
-                "confirmationRequired": false,
-                "elicitationRequired": false,
-                "prompts": {
-                  "elicitation": "Elicit.Intent-Matchsearch.IntentSlot-country"
-                }
-              }
-            ]
-          }
-        ],
-        "delegationStrategy": "ALWAYS"
-      },
-      "prompts": [
-        {
-          "id": "Elicit.Intent-Matches.IntentSlot-timeframe",
-          "variations": [
-            {
-              "type": "PlainText",
-              "value": "For which day you'd like to get infos about matches?"
-            }
-          ]
-        },
-        {
-          "id": "Elicit.Intent-Matchsearch.IntentSlot-country",
-          "variations": [
-            {
-              "type": "PlainText",
-              "value": "For which country you'd like to get infos about matches?"
-            }
-          ]
-        },
-        {
-          "id": "Elicit.Intent-Results.IntentSlot-timeframe",
-          "variations": [
-            {
-              "type": "PlainText",
-              "value": "For which day you'd like to get recap of matches?"
-            }
-          ]
-        },
-        {
-          "id": "Elicit.Intent-Stats.IntentSlot-stat",
-          "variations": [
-            {
-              "type": "PlainText",
-              "value": "Valid answer is Top Scorer. What statistics are you looking for? "
-            }
-          ]
-        },
-        {
-          "id": "Slot.Validation.Intent-Matches.IntentSlot-timeframe",
-          "variations": [
-            {
-              "type": "PlainText",
-              "value": "Currently I don't support {timeframe}. Please ask for another upcoming day."
-            },
-            {
-              "type": "PlainText",
-              "value": "{timeframe} is out of my scope, please ask for another upcoming day."
-            }
-          ]
-        },
-        {
-          "id": "Slot.Validation.Intent-Results.IntentSlot-timeframe",
-          "variations": [
-            {
-              "type": "PlainText",
-              "value": "Currently I don't support {timeframe}. Please ask for another date in the past two days."
-            },
-            {
-              "type": "PlainText",
-              "value": "{timeframe} is out of my scope, please ask for another date in the past two days."
-            }
-          ]
-        }
-      ]
     }
-  }
+}
