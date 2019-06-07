@@ -188,8 +188,6 @@ def match_search_intent_handler(handler_input):
 @sb.request_handler(can_handle_func=is_intent_name("LiveMatches"))
 def live_matches_intent_handler(handler_input):
     # This endpoint uses the Mock endpoint
-    MOCK_API = fifa.FifaApiWrapper(mock=True)
-    API = MOCK_API
     sayings = default_sayings["LIVE_MATCH_INTENT"]
     # This is an 'id' that should represent the season id
     try:
@@ -203,13 +201,13 @@ def live_matches_intent_handler(handler_input):
         event_id = "default"
 
     event = EVENTS[event_id]
-    # if not fifa.util.has_season_started(event.season):
-    #     # Short circuit if the season hasn't started
-    #     speech_text = "Sorry, the {} hasn't started yet".format(
-    #         SEASON_NAMES[event.season]
-    #     )
-    #     handler_input.response_builder.speak(speech_text).set_should_end_session(False)
-    #     return handler_input.response_builder.response
+    if not fifa.util.has_season_started(event.season):
+        # Short circuit if the season hasn't started
+        speech_text = "Sorry, the {} hasn't started yet".format(
+            SEASON_NAMES[event.season]
+        )
+        handler_input.response_builder.speak(speech_text).set_should_end_session(False)
+        return handler_input.response_builder.response
 
     speech_text = ""
     live_matches = fifa.util.live_scores(API, event.season)
