@@ -187,7 +187,6 @@ def match_search_intent_handler(handler_input):
 
 @sb.request_handler(can_handle_func=is_intent_name("LiveMatches"))
 def live_matches_intent_handler(handler_input):
-    # This endpoint uses the Mock endpoint
     sayings = default_sayings["LIVE_MATCH_INTENT"]
     # This is an 'id' that should represent the season id
     try:
@@ -271,6 +270,7 @@ def results_intent_handler(handler_input):
     timeframe_dt = fifa.util.date_parse(
         get_slot_value(handler_input=handler_input, slot_name="timeframe")
     )
+    delta = fifa.util.day_delta(timeframe_dt)
 
     speech_text = ""
     results = fifa.util.matches_by_date(
@@ -304,7 +304,6 @@ def results_intent_handler(handler_input):
         else:
             # This is the first element case
             # Find out if we should respond with a "friendly relative time (eg. yesterday)"
-            delta = fifa.util.day_delta(timeframe_dt)
             date_key_suffix = ""
             if delta.friendly_name == "today" or delta.friendly_name == "tomorrow":
                 date_key_suffix = "_RELATIVE"
