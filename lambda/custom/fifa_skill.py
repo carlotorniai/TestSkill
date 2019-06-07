@@ -99,7 +99,7 @@ def matches_intent_handler(handler_input):
         API, event.season, event.competition, on_date=timeframe_dt
     )
     for i, v in enumerate(results, 1):
-        if i == len(results):
+        if i == len(results) and i > 1:
             s = sayings["MATCHES_CONTINUED"]
             speech_text += " and " + s.format(v.home_team_name, v.away_team_name)
         elif i > 1:
@@ -289,7 +289,7 @@ def results_intent_handler(handler_input):
             draw_key_suffix = "_DRAW"
 
         # Send the results to be spoken
-        if i == len(results):
+        if i == len(results) and i > 1:
             # This is the last element case
             s = sayings["RESULTS_CONTINUED" + draw_key_suffix]
             speech_text += " and " + s.format(
