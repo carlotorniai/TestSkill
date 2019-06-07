@@ -212,10 +212,10 @@ def live_scores(API, season, language="en-GB"):
     for m in live_matches:
         if m["IdSeason"] == season:
             results.append(match(
-                home_team_name=m["Home"]["TeamName"][0]["Description"],
-                home_team_score=m["HomeTeamScore"],
-                away_team_name=m["Away"]["TeamName"][0]["Description"],
-                away_team_score=m["AwayTeamScore"],
+                home_team_name=m["HomeTeam"]["TeamName"][0]["Description"],
+                home_team_score=m["HomeTeam"]["Score"],
+                away_team_name=m["AwayTeam"]["TeamName"][0]["Description"],
+                away_team_score=m["AwayTeam"]["Score"],
                 match_time=m["MatchTime"]
             ))
 
