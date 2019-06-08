@@ -51,10 +51,10 @@ responses = {
         ),
     },
     "RESULTS_INTENT": {
-        "RESULTS_DATE": (
+        "RESULTS": (
             "on <say-as interpret-as='date'>????{}</say-as> {} beat {} {} to {}" # date, team1, team2, team1_score, team2_score
         ),
-        "RESULTS_DATE_DRAW": (
+        "RESULTS_DRAW": (
             "on <say-as interpret-as='date'>????{}</say-as> {} drew with {} {} to {}" # date, team1, team2, team1_score, team2_score
         ),
         "RESULTS_RELATIVE": (

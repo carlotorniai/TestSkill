@@ -305,7 +305,7 @@ def results_intent_handler(handler_input):
             # This is the first element case
             # Find out if we should respond with a "friendly relative time (eg. yesterday)"
             date_key_suffix = ""
-            if delta.friendly_name == "today" or delta.friendly_name == "tomorrow":
+            if delta.friendly_name == "today" or delta.friendly_name == "yesterday":
                 date_key_suffix = "_RELATIVE"
 
             s = sayings["RESULTS" + date_key_suffix + draw_key_suffix]
